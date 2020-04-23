@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: eureka-server
+  zipkin:
+    base-url: http://localhost:9411/
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost #eureka\u5B9E\u4F8B\u4E3B\u673A\u540D
+  client:
+    register-with-eureka: false #\u4E0D\u628Aeureka\u5B9E\u4F8B\u672C\u8EAB\u6CE8\u518C\u5230\u670D\u52A1\u4E2D\u5FC3
+    fetch-registry: false #\u4E0D\u4ECEeureka\u4E0A\u83B7\u53D6\u670D\u52A1\u6CE8\u518C\u4FE1\u606F\uFF0C\u56E0\u4E3A\u672C\u8EAB\u662F\u63D0\u4F9B\u670D\u52A1\u800C\u4E0D\u6D88\u8D39\u670D\u52A1
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    # \u5173\u95ED\u4FDD\u62A4\u673A\u5236
+    enable-self-preservation: false
+    #\u5254\u9664\u5931\u6548\u670D\u52A1\u95F4\u9694
+    eviction-interval-timer-in-ms: 2000
